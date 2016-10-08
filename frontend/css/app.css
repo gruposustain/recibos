@@ -1,0 +1,34 @@
+.jumbotron{
+	width: 900px;
+	text-align: center;
+	margin-top: 20px;
+	margin-left: auto;
+	margin-right: auto;
+}
+
+h3{
+	text-align: left; 
+	padding-left: 10px;
+}
+
+.panel{
+	width: 90%;
+	margin-left: auto;
+	margin-right: auto;
+	padding: 20px 20px;
+}
+
+.observacao{
+	font-size: 11px;
+	margin-bottom: 2px;
+	text-align: left;
+	color: red; 
+}
+
+input{
+	margin-bottom: 10px;
+}
+
+.rodape{
+	text-align: center;
+}

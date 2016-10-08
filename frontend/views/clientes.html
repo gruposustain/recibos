@@ -1,0 +1,51 @@
+<div class="jumbotron">
+	<h2>Sistema de emissao de recibos para Receita Federal</h2>
+	<div ng-controller="clientesControllerCtrl" class="panel panel-default">
+		<h3>{{titulo}}</h3>
+		
+		<input class="form-control" type="text" ng-model="criterioDeBusca" placeholder="O que você está buscando?"/>
+		<hr/>
+
+
+		<table class="table table-striped" name="listaClientes">
+			<tr>
+				<th></th>
+				<th>Nome</th>
+				<th>CPF</th>
+				<th>Data Cadastro</th>
+				<th>Data Nascimento</th>
+			</tr>
+			<tr ng-repeat="cliente in clientes | filter:criterioDeBusca | orderBy:nome">
+				<td><input type="checkbox" ng-model="cliente.selecionado"/></td>
+				<td ng-model="cliente.nome">{{cliente.nome}}</td>
+				<td>{{cliente.cpf}}</td>
+				<td>{{cliente.dataCadastro | date:'yyyy/MM/dd'}}</td>
+				<td>{{cliente.dataNascimento | date:'yyyy/MM/dd'}}</td>
+			</tr>
+		</table>
+		<hr/>
+		
+		<div ng-show="clienteForm.nome.$invalid && clienteForm.nome.$dirty" class="alert alert-danger">
+			Por favor, preencha o campo nome!
+		</div>
+
+		<div ng-show="clienteForm.cpf.$invalid && clienteForm.cpf.$dirty" class="alert alert-danger">
+			Por favor, preencha o campo CPF!
+		</div>
+
+		<div ng-show="clienteForm.dtNascimento.$invalid && clienteForm.dtNascimento.$dirty" class="alert alert-danger">
+			Por favor, preencha o campo data de nascimento!
+		</div>
+
+		<form name="clienteForm" ng-show="incluir">
+			<div class="observacao">
+				Todos os campos abaixo são de preenchimento obrigatório.
+			</div>
+			<input class="form-control" type="text" ng-model="cliente.nome" ng-required="true" placeholder="Nome" name="nome"/>
+			<input class="form-control" type="text" ng-model="cliente.cpf" ng-required="true" placeholder="CPF" name="cpf"/>
+			<input class="form-control" type="text" ng-model="cliente.dataNascimento" ng-required="true" placeholder="Data de Nascimento" name="dtNascimento"/>
+		</form>
+		<button class="btn btn-primary btn-block" ng-click="incluirCliente(cliente)" ng-disabled="clienteForm.$invalid">Incluir Novo Cliente</button>
+		<button class="btn btn-danger btn-block" ng-show="isClienteSelecionado(clientes)" ng-click="excluirClientes(clientes)">Excluir Cliente</button>
+	</div>
+</div>

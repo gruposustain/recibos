@@ -1,0 +1,23 @@
+{
+  "name": "frontend",
+  "authors": [
+    "grupoestudosustain <sara-silveira2009@hotmail.com>"
+  ],
+  "description": "sistema de controle de emissao de recibo",
+  "main": "",
+  "license": "MIT",
+  "homepage": "",
+  "private": true,
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "bootstrap": "^3.3.7",
+    "angular": "^1.5.8",
+    "angular-route": "^1.5.8"
+  }
+}
